@@ -1,0 +1,16 @@
+server:
+  port: 8805
+spring:
+  application:
+    name: discovery
+  cloud:
+    config:
+      uri: http://192.168.1.140:9999  #配置中心的地址
+      profile: ylf   #对应前配置文件中的{profile}部分
+eureka:
+  client:
+    register-with-eureka: false   #是否自动注册到服务中心，默认true
+    fetch-registry: false          #是否从注册中心获取注册列表  默认true
+  server:
+    enable-self-preservation: false # 关闭自我保护，保证会注销服务，清理无效节点
+    eviction-interval-timer-in-ms: 60000 # 清理无效节点间隔（毫秒）
